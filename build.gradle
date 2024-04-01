@@ -1,0 +1,113 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.gretty' version '4.1.0'
+}
+repositories {
+    mavenCentral()
+}
+def springVersion = '6.0.9'
+def log4jVersion = '2.20.0'
+def lombokVersion = '1.18.26'
+def hibernateValidatorVersion = '8.0.1.Final'
+def jacksonDataBindVersion = '2.15.1'
+def jacksonDataTypeVersion = '2.14.2'
+
+dependencies {
+    implementation group: 'org.springframework',
+            name: 'spring-context',
+            version: 'springVersion'
+    implementation group: 'org.springframework',
+            name: 'spring-jdbc',
+            version: '5.3.23'
+
+
+    implementation group: 'commons-beanutils',
+            name: 'commons-beanutils',
+            version: '1.9.2'
+
+    implementation group: 'org.postgresql',
+            name: 'postgresql',
+            version: '42.5.0'
+
+    implementation group: 'org.hsqldb',
+            name: 'hsqldb',
+            version: '2.7.0'
+
+    implementation group: 'org.apache.commons',
+            name: 'commons-dbcp2',
+            version: '2.9.0'
+
+
+    compileOnly group: 'org.projectlombok',
+            name: 'lombok',
+            version: '1.18.24'
+
+    annotationProcessor group: 'org.projectlombok',
+            name: 'lombok',
+            version: '1.18.24'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.32'
+    implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.32'
+    implementation group: 'org.springframework',
+            name: 'spring-webmvc',
+            version: springVersion
+
+    implementation group: 'jakarta.validation',
+            name: 'jakarta.validation-api',
+            version: '3.0.2'
+
+    implementation group: 'org.hibernate',
+            name: 'hibernate-validator',
+            version: hibernateValidatorVersion
+
+    implementation group: 'org.glassfish',
+            name: 'jakarta.el',
+            version: '4.0.2'
+
+    implementation group: 'com.fasterxml.jackson.core',
+            name: 'jackson-databind',
+            version: jacksonDataBindVersion
+
+    implementation group: 'com.fasterxml.jackson.datatype',
+            name: 'jackson-datatype-jsr310',
+            version: jacksonDataTypeVersion
+
+    implementation group: 'org.apache.logging.log4j',
+            name: 'log4j-api',
+            version: log4jVersion
+
+    implementation group: 'org.apache.logging.log4j',
+            name: 'log4j-core',
+            version: log4jVersion
+
+    testImplementation group: 'org.springframework',
+            name: 'spring-test',
+            version: springVersion
+
+    testImplementation group: 'junit',
+            name: 'junit',
+            version: '4.13.2'
+
+    testImplementation group: 'org.hamcrest',
+            name: 'hamcrest',
+            version: '2.2'
+
+    testImplementation group: 'jakarta.servlet',
+            name: 'jakarta.servlet-api',
+            version: '6.0.0'
+
+    compileOnly group: 'org.projectlombok',
+            name: 'lombok',
+            version: lombokVersion
+
+    annotationProcessor group: 'org.projectlombok',
+            name: 'lombok',
+            version: lombokVersion
+}
+
+test {
+    useJUnitPlatform()
+}
+gretty {
+    contextPath = '/'
+}
